@@ -1,0 +1,113 @@
+<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54" style="background-color: #F3F3F3;">
+    <div class="imageContainer">
+        <img src="../../../../assets/images/aleph.svg" alt="CorporativeImage" width="50%">
+    </div>
+
+    <p class="titleContainer">
+        Registro
+    </p>
+
+    <div>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Nombres</mat-label>
+                    <input class="form-control" formControlName="fullName" matInput placeholder="Ingrese su nombre" type="text">
+
+                    <mat-error *ngIf="isValidField({ theField: 'fullName', theError: 'required'})">
+                        El nombre es obligatorio
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'fullName', theError: 'minlength'})">
+                        El nombre requiere minimo 2 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'fullName', theError: 'maxlength'})">
+                        El nombre requiere máximo 20 letras
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Apellidos</mat-label>
+                    <input class="form-control" formControlName="lastName" matInput placeholder="Ingrese su apellido" type="text">
+
+                    <mat-error *ngIf="isValidField({ theField: 'lastName', theError: 'required'})">
+                        Los apellidos son obligatorios
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'lastName', theError: 'minlength'})">
+                        Los apellidos requieren un minimo 2 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'lastName', theError: 'maxlength'})">
+                        Los apellidos requieren un máximo 20 letras
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Número de identificación</mat-label>
+                    <input class="form-control" formControlName="identificationId" matInput placeholder="Ingrese su no. identificación" type="number">
+
+                    <mat-error *ngIf="isValidField({ theField: 'identificationId', theError: 'required'})">
+                        El Número de identificación es obligatorio
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'identificationId', theError: 'min'})">
+                        El Número de identificación requiere un minimo 5 numeros
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Email</mat-label>
+                    <input class="form-control" formControlName="email" matInput placeholder="Ingrese su email" type="email">
+
+                    <mat-error *ngIf="isValidField({ theField: 'email', theError: 'required'})">
+                        El email es obligatorio
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'email', theError: 'minlength'})">
+                        El email requiere un minimo 2 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'email', theError: 'email'})">
+                        El email no es válido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Contraseña</mat-label>
+                    <input class="form-control" formControlName="password" matInput placeholder="Ingrese su contraseña" type="password">
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'required'})">
+                        La contraseña es obligatoria
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'minlength'})">
+                        La contraseña requiere un minimo 2 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'maxlength'})">
+                        La contraseña requiere un minimo 20 letras
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            &nbsp;
+            <div class="buttonContainer">
+                <button mat-flat-button [disabled]="registerForm.invalid" id="registerButtonAvailable" [ngClass]="{'registerButtonDisable': registerForm.invalid}">Registrarme</button>
+            </div>
+
+            <div class="buttonContainer">
+                <button class="buttonTextStyle" [routerLink]="'/auth/login'" style="color: #1d6b8c; text-decoration: underline;" basic>Volver</button>
+            </div>
+        </form>
+    </div>
+</div>

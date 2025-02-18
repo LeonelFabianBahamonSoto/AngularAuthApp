@@ -1,0 +1,69 @@
+<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54" style="background-color: #1d6b8c;">
+
+    <div class="imageContainer">
+        <img src="../../../../assets/images/aleph.svg" alt="CorporativeImage" width="50%">
+    </div>
+
+    <p class="titleContainer">
+        Inicio de sesión
+    </p>
+
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="loginRequestForm()" autocomplete="on">
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Correo de identificación</mat-label>
+                    <input class="form-control" formControlName="username" matInput placeholder="Ingrese su correo electrónico" type="text">
+
+                    <mat-error *ngIf="isValidField({ theField: 'username', theError: 'required'})">
+                        El correo de identificación es obligatorio
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'username', theError: 'minlength'})">
+                        El correo requiere minimo 3 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'username', theError: 'maxlength'})">
+                        El correo requiere máximo 40 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'username', theError: 'email'})">
+                        El correo del usuario no es válido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="inputContainer">
+                <mat-form-field appearance="fill" class="inputStyle">
+                    <mat-label>Contraseña</mat-label>
+                    <input class="form-control" formControlName="password" matInput placeholder="Ingrese su contraseña" type="password">
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'required'})">
+                        La contraseña es obligatoria
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'minlength'})">
+                        La contraseña requiere minimo 5 letras
+                    </mat-error>
+
+                    <mat-error *ngIf="isValidField({ theField: 'password', theError: 'maxlength'})">
+                        La contraseña requiere máximo 10 letras
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            &nbsp;
+            <div class="buttonContainer">
+                <button id="loginButton" mat-flat-button [disabled]="loginForm.invalid">Iniciar sesión</button>
+            </div>
+            &nbsp;
+            <div class="buttonContainer">
+                <button class="buttonTextStyle" basic disabled="true">¿No tienes cuenta?</button>
+            </div>
+
+            <div class="buttonContainer">
+                <button class="buttonTextStyle" [routerLink]="'/auth/register'" style="color: #FFC300; text-decoration: underline;" basic>CREAR UNA AQUÍ</button>
+            </div>
+        </form>
+    </div>
+
+</div>
