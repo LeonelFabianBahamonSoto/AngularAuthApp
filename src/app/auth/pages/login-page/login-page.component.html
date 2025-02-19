@@ -43,7 +43,7 @@
                     </mat-error>
 
                     <mat-error *ngIf="isValidField({ theField: 'password', theError: 'minlength'})">
-                        La contraseña requiere minimo 5 letras
+                        La contraseña requiere minimo 1 letras
                     </mat-error>
 
                     <mat-error *ngIf="isValidField({ theField: 'password', theError: 'maxlength'})">
@@ -53,15 +53,13 @@
             </div>
             &nbsp;
             <div class="buttonContainer">
-                <button id="loginButton" mat-flat-button [disabled]="loginForm.invalid">Iniciar sesión</button>
+                <button mat-flat-button [disabled]="loginForm.invalid" [ngClass]="{'registerButtonAvailable': !loginForm.invalid, 'registerButtonDisable': loginForm.invalid}">Iniciar sesión</button>
             </div>
             &nbsp;
-            <div class="buttonContainer">
-                <button class="buttonTextStyle" basic disabled="true">¿No tienes cuenta?</button>
-            </div>
 
-            <div class="buttonContainer">
-                <button class="buttonTextStyle" [routerLink]="'/auth/register'" style="color: #FFC300; text-decoration: underline;" basic>CREAR UNA AQUÍ</button>
+            <div class="buttonContainer" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <p class="buttonTextStyle">¿No tienes cuenta?</p>
+                <button class="buttonTextStyle" style="background-color: transparent; color: #FFC300; text-decoration: underline;" [routerLink]="'/auth/register'" mat-button>CREAR UNA AQUÍ</button>
             </div>
         </form>
     </div>

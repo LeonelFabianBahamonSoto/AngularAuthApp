@@ -102,11 +102,11 @@
 
             &nbsp;
             <div class="buttonContainer">
-                <button mat-flat-button [disabled]="registerForm.invalid" id="registerButtonAvailable" [ngClass]="{'registerButtonDisable': registerForm.invalid}">Registrarme</button>
+                <button mat-flat-button [disabled]="registerForm.invalid" [ngClass]="{'registerButtonAvailable': !registerForm.invalid, 'registerButtonDisable': registerForm.invalid}">Registrarme</button>
             </div>
 
             <div class="buttonContainer">
-                <button class="buttonTextStyle" [routerLink]="'/auth/login'" style="color: #1d6b8c; text-decoration: underline;" basic>Volver</button>
+                <button class="buttonTextStyle" style="color: #1d6b8c; text-decoration: underline;" [routerLink]="'/auth/login'" mat-button>VOLVER</button>
             </div>
         </form>
     </div>

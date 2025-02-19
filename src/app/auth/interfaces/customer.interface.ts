@@ -1,3 +1,5 @@
+import { Roles } from "./roles.interface";
+
 export interface AuthCustomer {
     email: string,
     password: string,
@@ -12,13 +14,6 @@ export interface Customer {
     lastName: string,
     roles: Array<Roles>,
     updateDate: string,
-};
-
-export interface Roles {
-    creationDate: string;
-    roleDescription: string;
-    roleName: string;
-    rolesId: number;
 };
 
 export interface CustomerRegister {
